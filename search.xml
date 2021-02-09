@@ -22,16 +22,11 @@
     <title>Hello</title>
     <url>/2020/07/14/Hello/</url>
     <content><![CDATA[<hr>
-<p>title: Hello<br>date: 2020-07-14 22:27:59<br>tags:</p>
-<ul>
-<li>爬虫</li>
-<li>java</li>
-<li>编程</li>
-</ul>
+<p>title: Hello<br>tags:<br>-test</p>
 <hr>
-<p><strong>说明</strong></p>
+<p>##说明</p>
 <ul>
-<li>本文基于autoface网站，通过爬虫将网站中的知乎头像。。。。。<br><img src="http://i2.tiimg.com/723316/32eee4a948a5ccc8.jpg" alt="AKAXI"></li>
+<li>it is a test.<br><img src="/images/123.jpeg" alt="exemple"></li>
 </ul>
 ]]></content>
   </entry>
