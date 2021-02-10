@@ -18,4 +18,16 @@
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>Next主题添加标签、分类遇到的bug</title>
+    <url>/2021/02/10/text1/</url>
+    <content><![CDATA[<h1 id="使用Hexo-Github搭建个人博客"><a href="#使用Hexo-Github搭建个人博客" class="headerlink" title="使用Hexo+Github搭建个人博客"></a>使用Hexo+Github搭建个人博客</h1><p>网上有很多教程，我参考的主要是知乎上的<a href="https://zhuanlan.zhihu.com/p/26625249" target="_blank" rel="noopener">GitHub+Hexo 搭建个人网站详细教程</a>，以及一篇大佬的<a href="https://www.cnblogs.com/yaoyaoliu/p/10225172.html" target="_blank" rel="noopener">博客</a>，实现了基本的网站访问、写文章功能。</p>
+<a id="more"></a>
+<h2 id="遇到的bug"><a href="#遇到的bug" class="headerlink" title="遇到的bug"></a>遇到的bug</h2><p>因为CSDN上很多教程都采用了Next主题，所以我也下载设置了Next主题，但是我发现这个主题有些很奇怪的bug。</p>
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>MarkdownPad</tag>
+      </tags>
+  </entry>
 </search>
