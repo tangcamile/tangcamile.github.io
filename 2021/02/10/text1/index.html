@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="使用Hexo+Github搭建个人博客网上有很多教程，我参考的主要是知乎上的GitHub+Hexo 搭建个人网站详细教程，以及一篇大佬的博客，实现了基本的网站访问、写文章功能。">
+<meta name="description" content="Hexo+Github搭建个人博客网上有很多教程，我参考的主要是知乎上的GitHub+Hexo 搭建个人网站详细教程，和一篇不错的博客。我用的是Next主题，Pisces风格，现在我想把我搭建博客时遇到的问题写下来，以免下次遇到时遗忘。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Next主题添加标签、分类遇到的bug">
+<meta property="og:title" content="搭建静态博客Hexo遇到的Bug总结">
 <meta property="og:url" content="http://yoursite.com/2021/02/10/text1/index.html">
 <meta property="og:site_name" content="Camile&#39;s Blog">
-<meta property="og:description" content="使用Hexo+Github搭建个人博客网上有很多教程，我参考的主要是知乎上的GitHub+Hexo 搭建个人网站详细教程，以及一篇大佬的博客，实现了基本的网站访问、写文章功能。">
+<meta property="og:description" content="Hexo+Github搭建个人博客网上有很多教程，我参考的主要是知乎上的GitHub+Hexo 搭建个人网站详细教程，和一篇不错的博客。我用的是Next主题，Pisces风格，现在我想把我搭建博客时遇到的问题写下来，以免下次遇到时遗忘。">
+<meta property="og:image" content="https://i.loli.net/2021/02/10/Dn9wkfJjZRoLrYy.png">
 <meta property="article:published_time" content="2021-02-10T06:23:18.000Z">
-<meta property="article:modified_time" content="2021-02-10T06:50:27.571Z">
+<meta property="article:modified_time" content="2021-02-11T03:53:17.647Z">
 <meta property="article:author" content="tangcamlie">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="MarkdownPad">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/10/Dn9wkfJjZRoLrYy.png">
 
 
 
@@ -126,7 +128,7 @@
 
 
 
-  <title>Next主题添加标签、分类遇到的bug | Camile's Blog</title>
+  <title>搭建静态博客Hexo遇到的Bug总结 | Camile's Blog</title>
   
 
 
@@ -314,7 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Next主题添加标签、分类遇到的bug</h1>
+          <h1 class="post-title" itemprop="name headline">搭建静态博客Hexo遇到的Bug总结</h1>
         
 
         <div class="post-meta">
@@ -364,9 +366,13 @@
       
 
       
-        <h1 id="使用Hexo-Github搭建个人博客"><a href="#使用Hexo-Github搭建个人博客" class="headerlink" title="使用Hexo+Github搭建个人博客"></a>使用Hexo+Github搭建个人博客</h1><p>网上有很多教程，我参考的主要是知乎上的<a href="https://zhuanlan.zhihu.com/p/26625249" target="_blank" rel="noopener">GitHub+Hexo 搭建个人网站详细教程</a>，以及一篇大佬的<a href="https://www.cnblogs.com/yaoyaoliu/p/10225172.html" target="_blank" rel="noopener">博客</a>，实现了基本的网站访问、写文章功能。</p>
+        <h1 id="Hexo-Github搭建个人博客"><a href="#Hexo-Github搭建个人博客" class="headerlink" title="Hexo+Github搭建个人博客"></a>Hexo+Github搭建个人博客</h1><p>网上有很多教程，我参考的主要是知乎上的<a href="https://zhuanlan.zhihu.com/p/26625249" target="_blank" rel="noopener">GitHub+Hexo 搭建个人网站详细教程</a>，和一篇不错的<a href="https://www.cnblogs.com/yaoyaoliu/p/10225172.html" target="_blank" rel="noopener">博客</a>。我用的是Next主题，Pisces风格，现在我想把我搭建博客时遇到的问题写下来，以免下次遇到时遗忘。</p>
 <a id="more"></a>
-<h2 id="遇到的bug"><a href="#遇到的bug" class="headerlink" title="遇到的bug"></a>遇到的bug</h2><p>因为CSDN上很多教程都采用了Next主题，所以我也下载设置了Next主题，但是我发现这个主题有些很奇怪的bug。</p>
+<h1 id="添加标签、分类显示cannot-GET-20"><a href="#添加标签、分类显示cannot-GET-20" class="headerlink" title="添加标签、分类显示cannot GET /20%/"></a>添加标签、分类显示<em>cannot GET /20%/</em></h1><p>把主题配置文件menu设置<strong>||</strong>之前的空格删掉<br>举个栗子：tags: /tags/||tags</p>
+<h1 id="点击日志，本应跳转到归档，但显示404-notfound"><a href="#点击日志，本应跳转到归档，但显示404-notfound" class="headerlink" title="点击日志，本应跳转到归档，但显示404 notfound"></a>点击日志，本应跳转到归档，但显示404 notfound</h1><p>在 hexo s 预览模式下，本地端口的网页会报错<em>Cannot GET /archives/%7C%7C%20archive/</em></p>
+<h2 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h2><p><a href="https://blog.csdn.net/qq_38765633/article/details/104929566" target="_blank" rel="noopener">CSDN博客</a></p>
+<h1 id="添加type属性无效"><a href="#添加type属性无效" class="headerlink" title="添加type属性无效"></a>添加type属性无效</h1><p>这个主要是我的工具有问题，图方便在电脑应用商城下了一个MarkPad，理论上也支持.md文件的编辑，但是使用这个工具并不支持中文输入。后来我下载了MarkdownPad 2，成功解决问题，参考的是<a href="https://blog.csdn.net/qq_33668300/article/details/107658617" target="_blank" rel="noopener">Windows10安装Markdown安装教程(超级详细)</a></p>
+<h1 id="每次hexo-d时需要重复输入用户名和密码"><a href="#每次hexo-d时需要重复输入用户名和密码" class="headerlink" title="每次hexo d时需要重复输入用户名和密码"></a>每次hexo d时需要重复输入用户名和密码</h1><h2 id="解决方法：-1"><a href="#解决方法：-1" class="headerlink" title="解决方法："></a>解决方法：</h2><p>修改站点配置文件的depoly，具体修改方式如图：<br><img src="https://i.loli.net/2021/02/10/Dn9wkfJjZRoLrYy.png" alt="depoly"></p>
 
       
     </div>
@@ -534,7 +540,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Hexo-Github搭建个人博客"><span class="nav-number">1.</span> <span class="nav-text">使用Hexo+Github搭建个人博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的bug"><span class="nav-number">1.1.</span> <span class="nav-text">遇到的bug</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-Github搭建个人博客"><span class="nav-number">1.</span> <span class="nav-text">Hexo+Github搭建个人博客</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加标签、分类显示cannot-GET-20"><span class="nav-number">2.</span> <span class="nav-text">添加标签、分类显示cannot GET &#x2F;20%&#x2F;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#点击日志，本应跳转到归档，但显示404-notfound"><span class="nav-number">3.</span> <span class="nav-text">点击日志，本应跳转到归档，但显示404 notfound</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方法："><span class="nav-number">3.1.</span> <span class="nav-text">解决方法：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加type属性无效"><span class="nav-number">4.</span> <span class="nav-text">添加type属性无效</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#每次hexo-d时需要重复输入用户名和密码"><span class="nav-number">5.</span> <span class="nav-text">每次hexo d时需要重复输入用户名和密码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方法：-1"><span class="nav-number">5.1.</span> <span class="nav-text">解决方法：</span></a></li></ol></li></ol></div>
             
 
           </div>
