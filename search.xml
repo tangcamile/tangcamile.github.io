@@ -37,10 +37,28 @@
   <entry>
     <title>路由与交换学习笔记1</title>
     <url>/2021/02/22/text2/</url>
-    <content><![CDATA[<p><a href="https://www.cnblogs.com/reaperhero/articles/10224269.html" target="_blank" rel="noopener">学习配置静态路由</a></p>
+    <content><![CDATA[<p><a href="https://www.cnblogs.com/reaperhero/articles/10224269.html" target="_blank" rel="noopener">学习配置静态路由</a><br><a href="https://sm.ms/" target="_blank" rel="noopener">SM图床</a></p>
+<h1 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h1><p>1、串口（Serial Port）：即串行通信接口（通常指COM口）；串行通信就是只使用一条数据线，将数据一位一位依次传输。<br>2、console口，就是通过RJ-45水晶头，一头连路由器，一头连电脑的COM口，进行初始化的配置。<br>3、RJ-45就是局域网数据传输的接口，RS-232是广域网串行通信接口。</p>
+<a id="more"></a>
+<p>4、DTE是数据终端设备，是针头，DCE设备通常是与路由器对接，是孔头，有时钟频率，，DTE则是通过DCE匹配“时钟速率”。<br><img src="https://i.loli.net/2021/04/14/YetyoR1uG8J4xMg.jpg" alt="1.jpg"><br>5、Fa是百兆的快速以太网的端口，Gi是千兆以太网端口。他们的速率不一样。</p>
+<h1 id="路由器的预配置命令"><a href="#路由器的预配置命令" class="headerlink" title="路由器的预配置命令"></a>路由器的预配置命令</h1><ol>
+<li>更改设备名称：<br>在全局配置模式下输入<code>hostname +要改的名字</code></li>
+<li>关闭域名解析：防止输入错误命令后，系统当作域名查找浪费时间。<br>在全局配置模式下输入<code>no ip domain-lookup</code></li>
+<li>善用<code>Tab键</code>,补全命令。</li>
+<li>路由器的四个模式<ul>
+<li>用户模式<code>Router&gt;</code></li>
+<li>特权模式<code>Router#</code>(输入enable)</li>
+<li>全局配置模式<code>Router(config)</code>(输入configure terminal)</li>
+<li>接口模式<code>Router(config-if)</code>(输入”interface + 接口名称”)</li>
+<li>线路模式<code>Router(config-line)</code>,在全局配置模式下输入<code>line console 0</code>进入</li>
+</ul>
+</li>
+<li>当你只记得起命令的一半的时候可以输入一半的命令在后面输入一个”？”可查看以这些字母开头的所有命令</li>
+<li>如果想从当前模式退到上一个模式，输入”exit”命令即可；有一个特殊的命令”end”输入此命令可直接退到特权模式。<h1 id="路由器的基本配置"><a href="#路由器的基本配置" class="headerlink" title="路由器的基本配置"></a>路由器的基本配置</h1></li>
+</ol>
 ]]></content>
       <tags>
-        <tag>路由配置</tag>
+        <tag>路由</tag>
       </tags>
   </entry>
 </search>
