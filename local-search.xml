@@ -4,6 +4,54 @@
   
   
   <entry>
+    <title>ppt技巧笔记</title>
+    <link href="/2024/12/07/ppt%E6%8A%80%E5%B7%A7%E7%AC%94%E8%AE%B0/"/>
+    <url>/2024/12/07/ppt%E6%8A%80%E5%B7%A7%E7%AC%94%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<font size=3><h1 id="1-PPT整体展示图表之后局部高亮"><a href="#1-PPT整体展示图表之后局部高亮" class="headerlink" title="1.PPT整体展示图表之后局部高亮"></a>1.PPT整体展示图表之后局部高亮</h1><p><a href="https://www.bilibili.com/video/BV13r4y1c7r1/?vd_source=a9e78e47d3e6d67d875c0260caff8550">步骤教学</a></p><p><img src="https://s2.loli.net/2024/12/07/KUh4etcvqSk2BDd.gif" alt="ppt.gif"></p><h1 id="2-Others"><a href="#2-Others" class="headerlink" title="2.Others"></a>2.Others</h1><ul><li><a href="https://www.freeconvert.com/zh/convert/video-to-gif">视频转GIF工具</a></li><li><a href="https://blog.csdn.net/weixin_38314865/article/details/104440652">PPT立方体形状变薄</a></li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>PPT</tag>
+      
+      <tag>汇报</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>deep_learning_笔记</title>
+    <link href="/2024/12/05/deep-learning-%E7%AC%94%E8%AE%B0/"/>
+    <url>/2024/12/05/deep-learning-%E7%AC%94%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<font size=3><h1 id="1-AUC计算"><a href="#1-AUC计算" class="headerlink" title="1.AUC计算"></a>1.AUC计算</h1><p><code>roc_auc_score(test_labels, probs, multi_class=&#39;ovr&#39;)</code></p><blockquote><p>test_labels: 实际的类别标签，shape是 [N,]</p></blockquote><blockquote><p>probs: 每个样本在各个类别上的概率，shape是[N, C]</p></blockquote><blockquote><p>指定计算多类别问题的 AUC (<strong>One-vs-Rest 策略</strong>)</p></blockquote><h1 id="2-AccuracyCalculator使用"><a href="#2-AccuracyCalculator使用" class="headerlink" title="2.AccuracyCalculator使用"></a>2.AccuracyCalculator使用</h1>]]></content>
+    
+    
+    <categories>
+      
+      <category>python</category>
+      
+      <category>notes</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>代码调整记录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Ear-EEG数据集调研</title>
     <link href="/2024/11/27/Ear-EEG%E6%95%B0%E6%8D%AE%E9%9B%86%E8%B0%83%E7%A0%94/"/>
     <url>/2024/11/27/Ear-EEG%E6%95%B0%E6%8D%AE%E9%9B%86%E8%B0%83%E7%A0%94/</url>
