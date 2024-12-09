@@ -16,21 +16,25 @@
   <meta name="author" content="paopaotangzu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="few-shot learning的度量学习方法阅读与总结，目标是找到一篇文章，解决few-shot的以下问题：如何保证在基类上学习到深层的、不变的特征；支持集的样本过少，计算得到的类代表原型和实际期望得到的类原型有较大偏差，如何矫正有偏的类原型，进而提高模型分类精度。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://paopaotangzu.icu/2024/08/21/1.hello-world/index.html">
+<meta property="og:title" content="度量学习思路整合">
+<meta property="og:url" content="http://paopaotangzu.icu/2024/12/09/8-%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0%E6%96%87%E7%8C%AE%E8%B0%83%E7%A0%94%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="Paopaotang&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="few-shot learning的度量学习方法阅读与总结，目标是找到一篇文章，解决few-shot的以下问题：如何保证在基类上学习到深层的、不变的特征；支持集的样本过少，计算得到的类代表原型和实际期望得到的类原型有较大偏差，如何矫正有偏的类原型，进而提高模型分类精度。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-08-21T10:00:10.131Z">
-<meta property="article:modified_time" content="2024-01-27T11:31:46.090Z">
+<meta property="og:image" content="https://s2.loli.net/2024/12/09/qnV2rhwZTyjYGM8.png">
+<meta property="article:published_time" content="2024-12-09T10:29:41.000Z">
+<meta property="article:modified_time" content="2024-12-09T12:34:39.964Z">
 <meta property="article:author" content="paopaotangzu">
+<meta property="article:tag" content="paper">
+<meta property="article:tag" content="metric-learning">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s2.loli.net/2024/12/09/qnV2rhwZTyjYGM8.png">
   
   
   
-  <title>Hello World - Paopaotang&#39;s Blog</title>
+  <title>度量学习思路整合 - Paopaotang&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -252,7 +256,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Hello World"></span>
+            <span id="subtitle" data-typed-text="度量学习思路整合"></span>
           
         </div>
 
@@ -263,8 +267,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-08-21 18:00" pubdate>
-          2024年8月21日 晚上
+        <time datetime="2024-12-09 18:29" pubdate>
+          2024年12月9日 晚上
         </time>
       </span>
     
@@ -275,7 +279,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          18 字
+          725 字
         
       </span>
     
@@ -286,7 +290,7 @@
         
         
         
-          1 分钟
+          7 分钟
         
       </span>
     
@@ -323,24 +327,44 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Hello World</h1>
+            <h1 id="seo-header">度量学习思路整合</h1>
             
             
               <div class="markdown-body">
                 
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+                <font size=3>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
+<p>few-shot learning的度量学习方法阅读与总结，目标是找到一篇文章，解决few-shot的以下问题：<br>如何保证在基类上学习到深层的、不变的特征；<br>支持集的样本过少，计算得到的类代表原型和实际期望得到的类原型有较大偏差，如何矫正<strong>有偏的类原型</strong>，进而提高模型分类精度。</p>
+<span id="more"></span>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
+<h2 id="1-Prototype-Rectification-for-Few-Shot-Learning"><a href="#1-Prototype-Rectification-for-Few-Shot-Learning" class="headerlink" title="1.Prototype Rectification for Few-Shot Learning"></a>1.Prototype Rectification for Few-Shot Learning</h2><h3 id="1-1-基本信息"><a href="#1-1-基本信息" class="headerlink" title="1.1 基本信息"></a>1.1 基本信息</h3><ul>
+<li><p>2020年，ECCV会议论文</p>
+</li>
+<li><p>无开源源码</p>
+</li>
+<li><p>提出了如何减少类原型的偏置、减少support和query dataset之间的分布差。</p>
+</li>
+</ul>
+<h3 id="1-2-方法记录"><a href="#1-2-方法记录" class="headerlink" title="1.2 方法记录"></a>1.2 方法记录</h3><h4 id="1-2-1-intra-class-bias"><a href="#1-2-1-intra-class-bias" class="headerlink" title="1.2.1 intra-class bias"></a>1.2.1 intra-class bias</h4><p>为了减少实际计算出的原型和真实原型之间的差距，采用<strong>伪标签策略</strong>，补充<code>support set</code>的样本，由此得到更接近真实的原型。具体操作是取<code>top-k</code>个置信度的未标记样本，加上伪标签，加入<code>support set</code>一起计算类代表原型，其中为了避免伪标签错分给原型带来大的误差，使用<strong>加权和的平均作为修改的原型</strong>，权重的计算公式：样本和basic prototypes有更大的余弦相似度，则在修改的原型中有更高占比。</p>
+<div class="note note-info">
+            <p>伪标签有一个使用前提，即需要一次性给出某个类的所有未标记样本，不适用于一个个给测试样本的情况。<br>在脑电身份识别上，一个人作为一个类，<strong>他的测试样本是否可以一次性获取到？</strong>，决定了伪标签是否适用。</p>
+          </div>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h4 id="1-2-2-cross-class-bias"><a href="#1-2-2-cross-class-bias" class="headerlink" title="1.2.2 cross-class bias"></a>1.2.2 cross-class bias</h4><p>首先两个set被假设为分布在同一个domain中，但<code>support set</code>和<code>quary set</code>之间存在<strong>分布差</strong>，提出为了减少两者的分布差，可以把<code>quary set</code>朝<code>support set</code>移动。具体地，文章提出给每个标准化后的quary feature$\overline{X_q}$添加一个转换参数epilon。<br><img src="https://s2.loli.net/2024/12/09/qnV2rhwZTyjYGM8.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<div class="note note-info">
+            <p>减小分布差，脑电身份识别，support set用的是登记session的样本，quary set可能用的是另一个session的样本，由于时变性，两者的分布差肯定是存在的，甚至于同一个session，随着人状态的波动，样本之间估计也存在明显的分布差，这个方法可以一试。</p>
+          </div>
+
+<h2 id="2-Free-Lunch-for-Few-shot-Learning-Distribution-Calibration"><a href="#2-Free-Lunch-for-Few-shot-Learning-Distribution-Calibration" class="headerlink" title="2.Free Lunch for Few-shot Learning: Distribution Calibration"></a>2.Free Lunch for Few-shot Learning: Distribution Calibration</h2><h3 id="2-1-基本信息"><a href="#2-1-基本信息" class="headerlink" title="2.1 基本信息"></a>2.1 基本信息</h3><ul>
+<li><p>2021年，ICLR会议论文</p>
+</li>
+<li><p>源码：<a target="_blank" rel="noopener" href="https://github.com/ShuoYang-1998/Few_Shot_Distribution_Calibration">Few_Shot_Distribution_Calibration</a></p>
+</li>
+<li><p>提出从相似的、具有充足样本的类(复数)迁移统计数据来校准这些少数样本类的分布，接着<strong>从校准后的分布抽取足够数量的样本</strong>，用于分类器训练or计算得到接近真实的平均类原型。</p>
+</li>
+</ul>
+<h3 id="2-2-方法记录"><a href="#2-2-方法记录" class="headerlink" title="2.2 方法记录"></a>2.2 方法记录</h3><p>理论支撑：<strong>高斯分布</strong>的均值和方差可以被迁移到相似的类中，并且这个类别的样本量越充足，统计数据估计得越准确，很natural。<br>前提：假设特征表示的每个维度都服从一个高斯分布。</p>
 
                 
               </div>
@@ -349,6 +373,36 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/metric-learning/" class="category-chain-item">metric-learning</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/paper/" class="print-no-link">#paper</a>
+      
+        <a href="/tags/metric-learning/" class="print-no-link">#metric-learning</a>
+      
+    </div>
   
 </div>
 
@@ -358,8 +412,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Hello World</div>
-      <div>http://paopaotangzu.icu/2024/08/21/1.hello-world/</div>
+      <div>度量学习思路整合</div>
+      <div>http://paopaotangzu.icu/2024/12/09/8-度量学习文献调研记录/</div>
     </div>
     <div class="license-meta">
       
@@ -371,7 +425,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年8月21日</div>
+          <div>2024年12月9日</div>
         </div>
       
       
@@ -403,15 +457,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/08/21/2.test/" title="test">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">test</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2024/12/07/7.ppt%E6%8A%80%E5%B7%A7%E7%AC%94%E8%AE%B0/" title="PowerPoint修炼">
+                        <span class="hidden-mobile">PowerPoint修炼</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
@@ -498,6 +552,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -691,6 +751,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
