@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>注意力机制</title>
+    <link href="/2024/12/18/9-%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/"/>
+    <url>/2024/12/18/9-%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/</url>
+    
+    <content type="html"><![CDATA[<font size=3><p>学习注意力机制的原理和实现代码</p><span id="more"></span><h1 id="1-注意力机制"><a href="#1-注意力机制" class="headerlink" title="1.注意力机制"></a>1.注意力机制</h1><p>查询对象Query，被查询对象Value，通过去计算Q和V里的事物的<strong>相似度</strong>(更接近)，来判断哪些东西对Q来说更重要，哪些更不重要。</p><p>Q，$K &#x3D;k_1,k_2,\cdots,k_n$</p><p>通过点乘求内积的方法计算Q和K里的每一个事物的相似度，就可以拿到Q和$k_1$的相似度值$s_1$、Q和$k_2$的相似度值$s_2$、Q和$k_n$的相似度值$s_n$。计算$QK^T$后为避免输入的值差异过大导致Softmax的概率值过于极端，需要<strong>归一化</strong>，归一化的方式是<strong>除以嵌入向量维度的平方根。</strong></p><p>做一层$softmax(s_1, s_2,\cdots,s_n)$就可以得到概率$(a_1,a_2,\cdots,a_n)$，进而找到哪个事物对Q更重要。</p><p><img src="https://s2.loli.net/2024/12/18/ibh63dSvEWmJNG9.png" alt="image.png"></p><p>最后做一个汇总，拿到**经过注意力计算之后的图片$V’$**，现在这张图片中多了一些信息，多了于Q而言更重要、更不重要的信息。</p><p>$V&#x3D;(v_1, v_2, \cdots, v_n)$</p><p>$(a_1,a_2,\cdots,a_n) *+(v_1,v_2,\cdots,v_n)&#x3D;(a_1v_1+a_2v_2+\cdots+a_nv_n)$ &#x3D; V’</p><p><img src="https://s2.loli.net/2024/12/18/No5PiGVS4KZ2A9X.png" alt="image.png"></p><h1 id="2-自注意力机制-Self-attention"><a href="#2-自注意力机制-Self-attention" class="headerlink" title="2.自注意力机制(Self-attention)"></a>2.自注意力机制(Self-attention)</h1><p>在注意力机制中，一般来说Key和Value是相等的，或者一定具有某种关系。而Self-Attention中， Query、Key、Value三者是同源的，即K$\approx$V$\approx$Q，来源于同一个X。</p><p><strong>对X分别做三次线性变换，得到Query、Key、Value</strong>，通过X找到X里面的关键点。接下来的步骤和注意力机制一模一样，如图，列表示一个个X词向量，行表示分别要和句子中的每个词做一下相似度计算。</p><p>效果是：给定一个 X，通过自注意力模型，得到一个 Z，这个 Z 就是对 X 的新的表征（词向量），Z 这个词向量相比较 X 拥有了句法特征和语义特征。</p><p><img src="https://s2.loli.net/2024/12/18/mx1Rgsy7Sw9PAk2.png" alt="image.png"><br><img src="https://s2.loli.net/2024/12/18/UpFLilbYhmyWZXg.png" alt="image.png"></p><h1 id="3-多头自注意力-Multi-Head-Self-Attention"><a href="#3-多头自注意力-Multi-Head-Self-Attention" class="headerlink" title="3.多头自注意力(Multi-Head Self-Attention)"></a>3.多头自注意力(Multi-Head Self-Attention)</h1><h2 id="3-1-什么是多头"><a href="#3-1-什么是多头" class="headerlink" title="3.1 什么是多头"></a>3.1 什么是多头</h2><p>对于X,我们不是说，直接拿 X 去得到 Z，而是把 X 分成了 8 块（8 头），得到 Z0-Z7，然后把 Z0-Z7 拼接起来，再做一次线性变换（改变维度）得到 Z，使其和原来的X词向量维度一致。</p><h2 id="3-2-有什么作用"><a href="#3-2-有什么作用" class="headerlink" title="3.2 有什么作用"></a>3.2 有什么作用</h2><p>把X切成8个，这样原先在一个位置的X，去了空间上的8个位置，通过对8个点进行寻找(非线性变换，映射到更合理的空间)，找到更合适的位置。</p><p><img src="https://s2.loli.net/2024/12/18/f5kVD6dHu2UhzSn.png" alt="image.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>metric-learning</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Attention mechanism</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>度量学习思路整合</title>
     <link href="/2024/12/09/8-%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0%E6%96%87%E7%8C%AE%E8%B0%83%E7%A0%94%E8%AE%B0%E5%BD%95/"/>
     <url>/2024/12/09/8-%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0%E6%96%87%E7%8C%AE%E8%B0%83%E7%A0%94%E8%AE%B0%E5%BD%95/</url>
