@@ -16,16 +16,16 @@
   <meta name="author" content="paopaotangzu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="few-shot learning的度量学习方法阅读与总结，目标是找到一篇文章，解决few-shot的以下问题：如何保证在基类上学习到深层的、不变的特征；支持集的样本过少，计算得到的类代表原型和实际期望得到的类原型有较大偏差，如何矫正有偏的类原型，进而提高模型分类精度。">
+    <meta name="description" content="few-shot learning的度量学习方法阅读与总结，目标是找到一篇文章，解决few-shot的以下问题：在基类上，模型学会区分相似和不相似的实例，从而提高下游任务的性能；支持集的样本过少，计算得到的类代表原型和实际期望得到的类原型有较大偏差，如何矫正有偏的类原型，进而提高模型分类精度。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="度量学习思路整合">
 <meta property="og:url" content="http://paopaotangzu.icu/2024/12/09/8-%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0%E6%96%87%E7%8C%AE%E8%B0%83%E7%A0%94%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="Paopaotang&#39;s Blog">
-<meta property="og:description" content="few-shot learning的度量学习方法阅读与总结，目标是找到一篇文章，解决few-shot的以下问题：如何保证在基类上学习到深层的、不变的特征；支持集的样本过少，计算得到的类代表原型和实际期望得到的类原型有较大偏差，如何矫正有偏的类原型，进而提高模型分类精度。">
+<meta property="og:description" content="few-shot learning的度量学习方法阅读与总结，目标是找到一篇文章，解决few-shot的以下问题：在基类上，模型学会区分相似和不相似的实例，从而提高下游任务的性能；支持集的样本过少，计算得到的类代表原型和实际期望得到的类原型有较大偏差，如何矫正有偏的类原型，进而提高模型分类精度。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2024/12/09/qnV2rhwZTyjYGM8.png">
 <meta property="article:published_time" content="2024-12-09T10:29:41.000Z">
-<meta property="article:modified_time" content="2024-12-10T12:52:32.424Z">
+<meta property="article:modified_time" content="2025-01-06T11:59:10.974Z">
 <meta property="article:author" content="paopaotangzu">
 <meta property="article:tag" content="paper">
 <meta property="article:tag" content="metric-learning">
@@ -279,7 +279,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          1.5k 字
         
       </span>
     
@@ -290,7 +290,7 @@
         
         
         
-          10 分钟
+          13 分钟
         
       </span>
     
@@ -334,7 +334,7 @@
                 
                 <font size=3>
 
-<p>few-shot learning的度量学习方法阅读与总结，目标是找到一篇文章，解决few-shot的以下问题：<br>如何保证在基类上学习到深层的、不变的特征；<br>支持集的样本过少，计算得到的类代表原型和实际期望得到的类原型有较大偏差，如何矫正<strong>有偏的类原型</strong>，进而提高模型分类精度。</p>
+<p>few-shot learning的度量学习方法阅读与总结，目标是找到一篇文章，解决few-shot的以下问题：<br>在基类上，模型学会区分相似和不相似的实例，从而提高下游任务的性能；<br>支持集的样本过少，计算得到的类代表原型和实际期望得到的类原型有较大偏差，如何矫正<strong>有偏的类原型</strong>，进而提高模型分类精度。</p>
 <span id="more"></span>
 
 
@@ -387,7 +387,32 @@
             <ol><li>这篇文章在<strong>细粒度数据集CUB</strong>上也应用了DC方法，有超过200种不同的鸟类图片。每个人的脑电虽然说各自有判别性特征，其实还是很相似的细粒度数据，这个方法通过迁移<span class="label label-secondary">k</span>个距离最小的基类的分布，来直接增加支持集的样本，进而提高分类性能。</li><li>要调的超参数多，采样个数、k个基类、离散程度a。</li><li>在脑电上是否有效呢？特征向量都是经过标准化&#x2F;幂变换的。</li></ol>
           </div>
 
-<h2 id="3-Matching-Feature-Sets-for-Few-Shot-Image-Classification"><a href="#3-Matching-Feature-Sets-for-Few-Shot-Image-Classification" class="headerlink" title="3.Matching Feature Sets for Few-Shot Image Classification"></a>3.Matching Feature Sets for Few-Shot Image Classification</h2><h3 id="3-1-基本信息"><a href="#3-1-基本信息" class="headerlink" title="3.1 基本信息"></a>3.1 基本信息</h3><ul>
+<h2 id="3-Semantic-Based-Implicit-Feature-Transform-for-Few-Shot-Classification"><a href="#3-Semantic-Based-Implicit-Feature-Transform-for-Few-Shot-Classification" class="headerlink" title="3.Semantic-Based Implicit Feature Transform for Few-Shot Classification"></a>3.Semantic-Based Implicit Feature Transform for Few-Shot Classification</h2><h3 id="3-1-基本信息"><a href="#3-1-基本信息" class="headerlink" title="3.1 基本信息"></a>3.1 基本信息</h3><ul>
+<li><p>2024年，International Journal of Computer Vision</p>
+</li>
+<li><p>源码：<a target="_blank" rel="noopener" href="https://github.com/pmhDL/SIFT.git">SIFT</a></p>
+</li>
+<li><p>借鉴的是前面分布矫正的论文，同样是通过从基类补充特征向量到novel类上面去，不同的是图像类别标签（如cat、dog），<strong>本身具有语义信息</strong>，可以用不同的词向量来表达。然后通过语义嵌入的相似度来选择最近的基类，而不是前面通过统计特征。</p>
+</li>
+</ul>
+<h3 id="3-2-方法记录"><a href="#3-2-方法记录" class="headerlink" title="3.2 方法记录"></a>3.2 方法记录</h3><ul>
+<li><p>脑电的类别标签纯粹是<span class="label label-secondary">'Person A'</span>、<span class="label label-secondary">'Person B'</span>的形式，并不具有语义信息，所以如果要用，应该采用Free Lunch的方法<strong>做跨时段的分布矫正</strong>。</p>
+</li>
+<li><p>提出了一种原型矫正的方法。适用于transductive setting，即查询样本全部一次给出的情况。通过K-means把查询样本分簇为N类，接着建立路径规划问题的数学模型，为这N个类别确定互相不重复的标签，与初始的每个类原型做平均。</p>
+</li>
+</ul>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-6ae3e036" role="button" aria-expanded="false" aria-controls="collapse-6ae3e036">
+        <div class="fold-arrow">▶</div>原型矫正实现
+      </div>
+      <div class="fold-collapse collapse" id="collapse-6ae3e036">
+        <div class="fold-content">
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs PYTHON"><span class="hljs-keyword">def</span> <span class="hljs-title function_">updateproto</span>(<span class="hljs-params">Xs, ys, cls_center, way</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;更新原型 (prototype)，并与聚类中心 (cluster center) 结合&quot;&quot;&quot;</span><br>    <br>    <span class="hljs-comment"># 调用 np_proto 计算每个类别的原型</span><br>    proto = np_proto(Xs, ys, way)  <br>    <br>    <span class="hljs-comment"># 计算每个类别原型与所有聚类中心之间的平方欧式距离</span><br>    <span class="hljs-comment"># 使用广播机制，扩展 proto 和 cls_center 的维度后相减</span><br>    dist = ((proto[:, np.newaxis, :] - cls_center[np.newaxis, :, :]) ** <span class="hljs-number">2</span>).<span class="hljs-built_in">sum</span>(<span class="hljs-number">2</span>)  <br>    <br>    <span class="hljs-comment"># 找到每个类别原型距离最近的聚类中心索引</span><br>    <span class="hljs-built_in">id</span> = dist.argmin(<span class="hljs-number">1</span>)  <br>    feat_proto = np.zeros((way, Xs.shape[<span class="hljs-number">1</span>]))  <br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(way):<br>        <span class="hljs-comment"># 将当前类别的原型和其最近的聚类中心取平均值</span><br>        feat_proto[i] = (cls_center[<span class="hljs-built_in">id</span>[i]] + proto[i]) / <span class="hljs-number">2</span>  <br>    <br>    <span class="hljs-keyword">return</span> feat_proto  <br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+<h2 id="4-Matching-Feature-Sets-for-Few-Shot-Image-Classification"><a href="#4-Matching-Feature-Sets-for-Few-Shot-Image-Classification" class="headerlink" title="4.Matching Feature Sets for Few-Shot Image Classification"></a>4.Matching Feature Sets for Few-Shot Image Classification</h2><h3 id="4-1-基本信息"><a href="#4-1-基本信息" class="headerlink" title="4.1 基本信息"></a>4.1 基本信息</h3><ul>
 <li><p>2022年，CVPR会议论文</p>
 </li>
 <li><p>源码：<a target="_blank" rel="noopener" href="https://lvsn.github.io/SetFeat/">SetFeat-fs</a></p>
