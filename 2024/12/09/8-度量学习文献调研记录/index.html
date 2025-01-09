@@ -24,8 +24,10 @@
 <meta property="og:description" content="few-shot learning的度量学习方法阅读与总结，目标是找到一篇文章，解决few-shot的以下问题：在基类上，模型学会区分相似和不相似的实例，从而提高下游任务的性能；支持集的样本过少，计算得到的类代表原型和实际期望得到的类原型有较大偏差，如何矫正有偏的类原型，进而提高模型分类精度。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2024/12/09/qnV2rhwZTyjYGM8.png">
+<meta property="og:image" content="https://s2.loli.net/2025/01/09/NMQJKOybilHTAGV.png">
+<meta property="og:image" content="https://s2.loli.net/2025/01/09/eOXMZnHkxYScaRP.png">
 <meta property="article:published_time" content="2024-12-09T10:29:41.000Z">
-<meta property="article:modified_time" content="2025-01-07T05:47:00.873Z">
+<meta property="article:modified_time" content="2025-01-09T07:34:15.856Z">
 <meta property="article:author" content="paopaotangzu">
 <meta property="article:tag" content="paper">
 <meta property="article:tag" content="metric-learning">
@@ -279,7 +281,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          2.1k 字
         
       </span>
     
@@ -290,7 +292,7 @@
         
         
         
-          13 分钟
+          18 分钟
         
       </span>
     
@@ -417,9 +419,23 @@
 </li>
 <li><p>源码：<a target="_blank" rel="noopener" href="https://lvsn.github.io/SetFeat/">SetFeat-fs</a></p>
 </li>
-<li><p>提出…</p>
+<li><p>以Conv4-64骨干网络为例，提出把一张图像输入进去，经过一个Block，就输出一个经<strong>自注意力机制mapper</strong>计算后的特征向量$h_m$，这样处理从一张图片中提取出一组m(4)个特征向量。距离度量用的是负余弦相似度，实际上和原型网络的距离度量很相似，区分在于有多个特征向量，它这里<strong>统一了向量的shape</strong>，相当于在同一个特征空间内，按mapper聚合多个类中心。</p>
 </li>
 </ul>
+<h3 id="4-2-方法记录"><a href="#4-2-方法记录" class="headerlink" title="4.2 方法记录"></a>4.2 方法记录</h3><ul>
+<li><p>如何利用多个不同层提取出的特征向量，核心如下公式所示。<br><img src="https://s2.loli.net/2025/01/09/NMQJKOybilHTAGV.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+</li>
+<li><p><strong>训练流程：</strong>两个阶段，<span class="label label-primary">第一阶段</span>就是正常带FC层的分类器，并且本文是在每个Block后面都接一个FC层，分别训练到这个Block为止的网络，<span class="label label-primary">第二阶段</span>，舍去FC层，应用轮次训练在基类上模拟FSL Task，通过公式6的负对数概率计算loss，反向传播微调编码器的参数。微调结束，最终在novel类上面推理，之前的Free Lunch也是一样的流程。<br><img src="https://s2.loli.net/2025/01/09/eOXMZnHkxYScaRP.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+</li>
+</ul>
+<div class="note note-secondary">
+            <ol><li>总结一下，它提高原型网络分类精度的手段就是，同一个特征space，一个类别聚合m个类中心。</li><li>感觉第一阶段训练就相当于独立地训练了4个encoder，但是又不独立，前面的参数是要重复使用的，具体要看代码train部分。</li></ol>
+          </div>
+
+<div class="note note-info">
+            <ol><li>这种在预训练阶段，训练一个分类器的做法和我之前看的<strong>有监督对比学习</strong>训练编码器的方式不一样，我的想法是也许可以借用这个metric，然后用SCL的做法分别独立训练出3个encoder。之后可以有两种metric方法，一种是和本文做法一样，投射到同一个特征空间；另一种映射到不同特征空间分别做相似度计算，再求和，作为新的metric。</li><li>还有一个想法是SCL的<strong>encoder很关键，</strong>决定了特征向量的质量，借鉴GoogleNet的多尺度卷积方法，预训练出一个encoder，也可以试一下。</li></ol>
+          </div>
+
 </font>
                 
               </div>
