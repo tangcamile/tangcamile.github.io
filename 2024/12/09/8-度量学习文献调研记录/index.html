@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://s2.loli.net/2025/01/09/NMQJKOybilHTAGV.png">
 <meta property="og:image" content="https://s2.loli.net/2025/01/09/eOXMZnHkxYScaRP.png">
 <meta property="article:published_time" content="2024-12-09T10:29:41.000Z">
-<meta property="article:modified_time" content="2025-01-12T11:30:10.678Z">
+<meta property="article:modified_time" content="2025-01-14T07:04:08.187Z">
 <meta property="article:author" content="paopaotangzu">
 <meta property="article:tag" content="paper">
 <meta property="article:tag" content="metric-learning">
@@ -281,7 +281,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3k 字
+          3.3k 字
         
       </span>
     
@@ -292,7 +292,7 @@
         
         
         
-          26 分钟
+          28 分钟
         
       </span>
     
@@ -490,6 +490,41 @@
 <li><p>2024年，Neural Networks</p>
 </li>
 <li><p>源码：<a target="_blank" rel="noopener" href="https://github.com/wzwvv/EEGAug">EEGAug</a></p>
+</li>
+<li><p>提出了一种无需超参数的<strong>通道交换(CR)数据增强</strong>方法，传统的数据增强如添加Noise、Scale、Frep都需要调超参数，并且十分鲁棒，在MI、SSVEP、ERP、癫痫检测4个实验范式下均适用，相比于Baseline(没有数据增强)，分类精度更好。注意经CR数据增强之后，训练数据翻倍。</p>
+</li>
+</ul>
+<h3 id="7-2-方法记录"><a href="#7-2-方法记录" class="headerlink" title="7.2 方法记录"></a>7.2 方法记录</h3>
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-05eef982" role="button" aria-expanded="false" aria-controls="collapse-05eef982">
+        <div class="fold-arrow">▶</div>leftrightflipping_transform
+      </div>
+      <div class="fold-collapse collapse" id="collapse-05eef982">
+        <div class="fold-content">
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs PYTHON"><span class="hljs-keyword">def</span> <span class="hljs-title function_">leftrightflipping_transform</span>(<span class="hljs-params">X, left_mat, right_mat</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string"></span><br><span class="hljs-string">    Parameters</span><br><span class="hljs-string">    ----------</span><br><span class="hljs-string">    X: torch tensor of shape (num_samples, 1, num_channels, num_timesamples)</span><br><span class="hljs-string">    left_mat: numpy array of shape (a, ), where a is the number of left brain channels, in order</span><br><span class="hljs-string">    right_mat: numpy array of shape (b, ), where b is the number of right brain channels, in order</span><br><span class="hljs-string"></span><br><span class="hljs-string">    Returns</span><br><span class="hljs-string">    -------</span><br><span class="hljs-string">    transformedX: transformed signal of torch tensor of shape (num_samples, num_channels, num_timesamples)</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br><br>    num_samples, _, num_channels, num_timesamples = X.shape<br>    transformedX = torch.zeros((num_samples, <span class="hljs-number">1</span>, num_channels, num_timesamples))<br>    <span class="hljs-keyword">for</span> ch <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(num_channels):<br>        <span class="hljs-keyword">if</span> ch <span class="hljs-keyword">in</span> left_mat:<br>            ind = left_mat.index(ch)<br>            transformedX[:, <span class="hljs-number">0</span>, ch, :] = X[:, <span class="hljs-number">0</span>, right_mat[ind], :]<br>        <span class="hljs-keyword">elif</span> ch <span class="hljs-keyword">in</span> right_mat:<br>            ind = right_mat.index(ch)<br>            transformedX[:, <span class="hljs-number">0</span>, ch, :] = X[:, <span class="hljs-number">0</span>, left_mat[ind], :]<br>        <span class="hljs-keyword">else</span>:<br>            transformedX[:, <span class="hljs-number">0</span>, ch, :] = X[:, <span class="hljs-number">0</span>, ch, :]<br><br>    <span class="hljs-keyword">return</span> transformedX<br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+
+<ul>
+<li>即根据脑电极通道的索引，位于中线的电极不变，左脑和右脑对称分布的电极做一个交换，类似于图像的翻转操作。除左右手MI想象要调换标签之外，ERP不需要换标签。调用方法如下：</li>
+</ul>
+
+    <div class="fold">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-90469042" role="button" aria-expanded="false" aria-controls="collapse-90469042">
+        <div class="fold-arrow">▶</div>调用example
+      </div>
+      <div class="fold-collapse collapse" id="collapse-90469042">
+        <div class="fold-content">
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs PYTHON"><span class="hljs-keyword">if</span> dataset == <span class="hljs-string">&#x27;BNCI2014001&#x27;</span>:<br>    left_mat = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">18</span>]<br>    right_mat = [<span class="hljs-number">5</span>, <span class="hljs-number">4</span>, <span class="hljs-number">12</span>, <span class="hljs-number">11</span>, <span class="hljs-number">10</span>, <span class="hljs-number">17</span>, <span class="hljs-number">16</span>, <span class="hljs-number">20</span>]<br>    aug_train_x = leftrightflipping_transform(<br>        torch.from_numpy(train_x).to(torch.float32).reshape(train_x.shape[<span class="hljs-number">0</span>], <span class="hljs-number">1</span>, ch_num, -<span class="hljs-number">1</span>),<br>        left_mat, right_mat).numpy().reshape(train_x.shape[<span class="hljs-number">0</span>], ch_num, -<span class="hljs-number">1</span>)<br>    aug_train_y = <span class="hljs-number">1</span> - train_y  <span class="hljs-comment"># 二分类标签0-1对调</span><br></code></pre></td></tr></table></figure>
+        </div>
+      </div>
+    </div>
+
+<h2 id="8-Charting-the-Right-Manifold-Manifold-Mixup-for-Few-shot-Learning"><a href="#8-Charting-the-Right-Manifold-Manifold-Mixup-for-Few-shot-Learning" class="headerlink" title="8.Charting the Right Manifold: Manifold Mixup for Few-shot Learning"></a>8.Charting the Right Manifold: Manifold Mixup for Few-shot Learning</h2><h3 id="8-1-基本信息"><a href="#8-1-基本信息" class="headerlink" title="8.1 基本信息"></a>8.1 基本信息</h3><ul>
+<li><p>2020年，WACV</p>
+</li>
+<li><p>源码：<a target="_blank" rel="noopener" href="https://github.com/nupurkmr9/S2M2_fewshot">S2M2_fewshot</a></p>
 </li>
 <li><p>提出…</p>
 </li>
