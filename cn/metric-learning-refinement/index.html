@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://s2.loli.net/2025/01/09/NMQJKOybilHTAGV.png">
 <meta property="og:image" content="https://s2.loli.net/2025/01/09/eOXMZnHkxYScaRP.png">
 <meta property="article:published_time" content="2024-12-09T10:29:41.000Z">
-<meta property="article:modified_time" content="2025-01-25T08:21:08.091Z">
+<meta property="article:modified_time" content="2025-01-25T08:35:47.757Z">
 <meta property="article:author" content="paopaotangzu">
 <meta property="article:tag" content="paper">
 <meta property="article:tag" content="metric-learning">
@@ -385,7 +385,7 @@
 </ul>
 <h3 id="1-2-方法记录"><a href="#1-2-方法记录" class="headerlink" title="1.2 方法记录"></a>1.2 方法记录</h3><h4 id="1-2-1-intra-class-bias"><a href="#1-2-1-intra-class-bias" class="headerlink" title="1.2.1 intra-class bias"></a>1.2.1 intra-class bias</h4><p>为了减少实际计算出的原型和真实原型之间的差距，采用<strong>伪标签策略</strong>，补充<code>support set</code>的样本，由此得到更接近真实的原型。具体操作是取<code>top-k</code>个置信度的未标记样本，加上伪标签，加入<code>support set</code>一起计算类代表原型，其中为了避免伪标签错分给原型带来大的误差，使用<strong>加权和的平均作为修改的原型</strong>，权重的计算公式：样本和basic prototypes有更大的余弦相似度，则在修改的原型中有更高占比。</p>
 <div class="note note-info">
-            <p>伪标签有一个使用前提，即需要一次性给出某个类的所有未标记样本，不适用于一个个给测试样本的情况。<br>在脑电身份识别上，一个人作为一个类，<strong>他的测试样本是否可以一次性获取到？</strong>，决定了伪标签是否适用。</p>
+            <p>伪标签有一个使用前提，即需要一次性给出某个类的所有未标记样本，不适用于一个个给测试样本的情况。在脑电身份识别上，一个人作为一个类，<strong>他的测试样本是否可以一次性获取到？</strong>，决定了伪标签是否适用。</p>
           </div>
 
 <h4 id="1-2-2-cross-class-bias"><a href="#1-2-2-cross-class-bias" class="headerlink" title="1.2.2 cross-class bias"></a>1.2.2 cross-class bias</h4><p>首先两个set被假设为分布在同一个domain中，但<code>support set</code>和<code>quary set</code>之间存在<strong>分布差</strong>，提出为了减少两者的分布差，可以把<code>quary set</code>朝<code>support set</code>移动。具体地，文章提出给每个标准化后的quary feature$\overline{X_q}$添加一个转换参数epilon。<br><img src="https://s2.loli.net/2024/12/09/qnV2rhwZTyjYGM8.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
