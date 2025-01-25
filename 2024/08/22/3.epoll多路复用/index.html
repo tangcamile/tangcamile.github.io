@@ -19,7 +19,7 @@
     <meta name="description" content="为了实现及时聊天，即两方可以任意向对方发送连续的多条消息的功能，需要使用epoll。在内核中，socket对象缓冲区recv()、标准输入缓冲区input()都分配了一段内存，内存对应一个整型编号（数组下标），这个编号就是文件描述符file describer。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="epoll多路复用">
-<meta property="og:url" content="http://paopaotangzu.icu/2024/08/22/3.epoll%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/index.html">
+<meta property="og:url" content="http://paopaotangzu.xyz/2024/08/22/3.epoll%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/index.html">
 <meta property="og:site_name" content="Paopaotang&#39;s Blog">
 <meta property="og:description" content="为了实现及时聊天，即两方可以任意向对方发送连续的多条消息的功能，需要使用epoll。在内核中，socket对象缓冲区recv()、标准输入缓冲区input()都分配了一段内存，内存对应一个整型编号（数组下标），这个编号就是文件描述符file describer。">
 <meta property="og:locale" content="zh_CN">
@@ -79,7 +79,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"paopaotangzu.icu","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"paopaotangzu.xyz","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -428,7 +428,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>epoll多路复用</div>
-      <div>http://paopaotangzu.icu/2024/08/22/3.epoll多路复用/</div>
+      <div>http://paopaotangzu.xyz/2024/08/22/3.epoll多路复用/</div>
     </div>
     <div class="license-meta">
       
