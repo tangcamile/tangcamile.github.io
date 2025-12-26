@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>算法训练营day09 | {151.翻转字符串里的单词, 卡码网：55.右旋转字符串, 28.实现 strStr()，459.重复的子字符串}</title>
+    <link href="/cn/day09_leetcode/"/>
+    <url>/cn/day09_leetcode/</url>
+    
+    <content type="html"><![CDATA[<p>第四章字符串-part02，知识点为双指针、字符串复杂操作。</p><span id="more"></span><h1 id="151-翻转字符串里的单词"><a href="#151-翻转字符串里的单词" class="headerlink" title="151.翻转字符串里的单词"></a>151.翻转字符串里的单词</h1><div class="note note-info">            <ul><li>题目链接：<a href="https://leetcode.cn/problems/reverse-words-in-a-string/description/">151.翻转字符串里的单词</a></li><li>文档讲解：<a href="https://programmercarl.com/0151.%E7%BF%BB%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8C%E7%9A%84%E5%8D%95%E8%AF%8D.html#%E6%80%9D%E8%B7%AF">代码随想录–151.翻转字符串里的单词</a></li><li>状态：反转字符串还没达到理解并灵活使用的程度，以及Java语言本身的API也要再熟悉一下。</li></ul>          </div><h2 id="1-1-解题过程"><a href="#1-1-解题过程" class="headerlink" title="1.1 解题过程"></a>1.1 解题过程</h2><p>。。。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+      <tag>代码随想录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>算法训练营day07 | {344.反转字符串, 541.反转字符串II, 15.三数之和，18.四数之和}</title>
     <link href="/cn/day07_leetcode/"/>
     <url>/cn/day07_leetcode/</url>
