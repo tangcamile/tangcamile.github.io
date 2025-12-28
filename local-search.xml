@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>算法训练营day11 | {150.逆波兰表达式求值, 239.滑动窗口最大值, 347.前K个高频元素}</title>
+    <link href="/cn/day11_leetcode/"/>
+    <url>/cn/day11_leetcode/</url>
+    
+    <content type="html"><![CDATA[<p>第六章栈与队列part02，什么场景下使用栈，什么场景下使用队列。</p><span id="more"></span><h1 id="150-逆波兰表达式求值"><a href="#150-逆波兰表达式求值" class="headerlink" title="150. 逆波兰表达式求值"></a>150. 逆波兰表达式求值</h1><div class="note note-info">            <ul><li>题目链接：<a href="https://leetcode.cn/problems/evaluate-reverse-polish-notation/description/">150.逆波兰表达式求值</a></li><li>文档讲解：<a href="https://programmercarl.com/0150.%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B1%82%E5%80%BC.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE">代码随想录–150.逆波兰表达式求值</a></li><li>状态：AC</li></ul>          </div><h2 id="1-1-解题过程"><a href="#1-1-解题过程" class="headerlink" title="1.1 解题过程"></a>1.1 解题过程</h2><ul><li>适合用栈操作运算：遇到数字则入栈；遇到算符则取出栈顶两个数字进行计算，并将结果压入栈中，实现如下：    <div class="fold">      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-8f7bdefe" role="button" aria-expanded="false" aria-controls="collapse-8f7bdefe">        <div class="fold-arrow">▶</div>150. 逆波兰表达式求值      </div>      <div class="fold-collapse collapse" id="collapse-8f7bdefe">        <div class="fold-content">          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs JAVA"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">evalRPN</span><span class="hljs-params">(String[] tokens)</span> &#123;<br>        Deque&lt;String&gt; stack = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayDeque</span>&lt;&gt;();<br>        Set&lt;String&gt; op = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashSet</span>&lt;&gt;(Arrays.asList(<span class="hljs-string">&quot;+&quot;</span>, <span class="hljs-string">&quot;-&quot;</span>, <span class="hljs-string">&quot;*&quot;</span>, <span class="hljs-string">&quot;/&quot;</span>));<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; tokens.length; i++) &#123;<br>            <span class="hljs-keyword">if</span> (!op.contains(tokens[i])) &#123;<br>                stack.push(tokens[i]);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-type">int</span> <span class="hljs-variable">r</span> <span class="hljs-operator">=</span> Integer.parseInt(stack.pop());<br>                <span class="hljs-type">int</span> <span class="hljs-variable">l</span> <span class="hljs-operator">=</span> Integer.parseInt(stack.pop());<br>                <span class="hljs-type">int</span> res;<br>                <span class="hljs-keyword">if</span>(<span class="hljs-string">&quot;+&quot;</span>.equals(tokens[i])) &#123;<br>                    res = l + r;<br>                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;-&quot;</span>.equals(tokens[i])) &#123;<br>                    res = l - r;<br>                &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;*&quot;</span>.equals(tokens[i])) &#123;<br>                    res = l * r;<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    res = l / r;<br>                &#125;<br>                stack.push(String.valueOf(res));<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> Integer.parseInt(stack.pop());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>        </div>      </div>    </div></li></ul><h1 id="239-滑动窗口最大值"><a href="#239-滑动窗口最大值" class="headerlink" title="239. 滑动窗口最大值"></a>239. 滑动窗口最大值</h1><div class="note note-info">            <ul><li>题目链接：<a href="https://leetcode.cn/problems/sliding-window-maximum/">239. 滑动窗口最大值</a></li><li>文档讲解：<a href="https://programmercarl.com/0239.%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E6%9C%80%E5%A4%A7%E5%80%BC.html">代码随想录–239. 滑动窗口最大值</a></li><li>状态：</li></ul>          </div><h2 id="2-1-解题过程"><a href="#2-1-解题过程" class="headerlink" title="2.1 解题过程"></a>2.1 解题过程</h2><ul><li>TO be continued. 今天打了周赛，用到了前面学的前缀和数组，和用哈希表来判断集合中的某个元素是否曾经出现过，明天一起总结。。。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+      <tag>代码随想录</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>算法训练营day10 | {232.用栈实现队列, 225.用队列实现栈, 20.有效的括号，1047.删除字符串中的所有相邻重复项}</title>
     <link href="/cn/day10_leetcode/"/>
     <url>/cn/day10_leetcode/</url>
