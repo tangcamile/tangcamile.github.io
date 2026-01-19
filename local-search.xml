@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>docker构建与部署</title>
+    <link href="/cn/docker_depoly/"/>
+    <url>/cn/docker_depoly/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>算法训练营day32 | {56.合并区间, 738.单调递增的数字, 968.监控二叉树}</title>
     <link href="/cn/day32_leetcode/"/>
     <url>/cn/day32_leetcode/</url>
