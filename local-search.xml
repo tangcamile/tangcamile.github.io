@@ -44,6 +44,8 @@
       
       <category>Leetcode</category>
       
+      <category>动态规划</category>
+      
     </categories>
     
     
@@ -70,6 +72,8 @@
     <categories>
       
       <category>Leetcode</category>
+      
+      <category>动态规划</category>
       
     </categories>
     
@@ -98,6 +102,8 @@
       
       <category>Leetcode</category>
       
+      <category>动态规划</category>
+      
     </categories>
     
     
@@ -125,6 +131,8 @@
       
       <category>Java</category>
       
+      <category>小型支付商城</category>
+      
     </categories>
     
     
@@ -149,6 +157,8 @@
     <categories>
       
       <category>Leetcode</category>
+      
+      <category>动态规划</category>
       
     </categories>
     
@@ -177,6 +187,8 @@
       
       <category>Leetcode</category>
       
+      <category>动态规划</category>
+      
     </categories>
     
     
@@ -203,6 +215,8 @@
     <categories>
       
       <category>DevOps</category>
+      
+      <category>Docker</category>
       
     </categories>
     
@@ -231,6 +245,8 @@
       
       <category>Leetcode</category>
       
+      <category>贪心算法</category>
+      
     </categories>
     
     
@@ -257,6 +273,8 @@
     <categories>
       
       <category>Leetcode</category>
+      
+      <category>贪心算法</category>
       
     </categories>
     
@@ -285,6 +303,8 @@
       
       <category>Leetcode</category>
       
+      <category>贪心算法</category>
+      
     </categories>
     
     
@@ -311,6 +331,8 @@
     <categories>
       
       <category>Leetcode</category>
+      
+      <category>贪心算法</category>
       
     </categories>
     
@@ -339,6 +361,8 @@
       
       <category>Leetcode</category>
       
+      <category>贪心算法</category>
+      
     </categories>
     
     
@@ -365,6 +389,8 @@
     <categories>
       
       <category>Leetcode</category>
+      
+      <category>回溯算法</category>
       
     </categories>
     
@@ -393,6 +419,8 @@
       
       <category>Leetcode</category>
       
+      <category>回溯算法</category>
+      
     </categories>
     
     
@@ -419,6 +447,8 @@
     <categories>
       
       <category>Leetcode</category>
+      
+      <category>回溯算法</category>
       
     </categories>
     
@@ -447,6 +477,8 @@
       
       <category>Leetcode</category>
       
+      <category>回溯算法</category>
+      
     </categories>
     
     
@@ -473,6 +505,8 @@
     <categories>
       
       <category>Leetcode</category>
+      
+      <category>二叉搜索树</category>
       
     </categories>
     
@@ -501,6 +535,8 @@
       
       <category>Leetcode</category>
       
+      <category>二叉树</category>
+      
     </categories>
     
     
@@ -527,6 +563,8 @@
     <categories>
       
       <category>Leetcode</category>
+      
+      <category>二叉搜索树</category>
       
     </categories>
     
@@ -555,6 +593,8 @@
       
       <category>Leetcode</category>
       
+      <category>二叉搜索树</category>
+      
     </categories>
     
     
@@ -581,6 +621,8 @@
     <categories>
       
       <category>Leetcode</category>
+      
+      <category>二叉树</category>
       
     </categories>
     
@@ -609,6 +651,8 @@
       
       <category>Leetcode</category>
       
+      <category>二叉树</category>
+      
     </categories>
     
     
@@ -635,6 +679,8 @@
     <categories>
       
       <category>Leetcode</category>
+      
+      <category>二叉树</category>
       
     </categories>
     
@@ -663,6 +709,8 @@
       
       <category>Leetcode</category>
       
+      <category>二叉树</category>
+      
     </categories>
     
     
@@ -689,6 +737,8 @@
     <categories>
       
       <category>Leetcode</category>
+      
+      <category>栈与队列</category>
       
     </categories>
     
@@ -717,6 +767,8 @@
       
       <category>Leetcode</category>
       
+      <category>栈与队列</category>
+      
     </categories>
     
     
@@ -743,6 +795,8 @@
     <categories>
       
       <category>Leetcode</category>
+      
+      <category>字符串</category>
       
     </categories>
     
@@ -771,6 +825,8 @@
       
       <category>Leetcode</category>
       
+      <category>字符串</category>
+      
     </categories>
     
     
@@ -797,6 +853,8 @@
     <categories>
       
       <category>Leetcode</category>
+      
+      <category>哈希表</category>
       
     </categories>
     
@@ -825,6 +883,8 @@
       
       <category>Leetcode</category>
       
+      <category>哈希表</category>
+      
     </categories>
     
     
@@ -851,6 +911,8 @@
     <categories>
       
       <category>Leetcode</category>
+      
+      <category>链表</category>
       
     </categories>
     
@@ -879,6 +941,8 @@
       
       <category>Leetcode</category>
       
+      <category>数组</category>
+      
     </categories>
     
     
@@ -906,6 +970,8 @@
       
       <category>Leetcode</category>
       
+      <category>链表</category>
+      
     </categories>
     
     
@@ -932,6 +998,8 @@
     <categories>
       
       <category>Leetcode</category>
+      
+      <category>数组</category>
       
     </categories>
     
@@ -985,6 +1053,8 @@
       
       <category>DevOps</category>
       
+      <category>远程连接</category>
+      
     </categories>
     
     
@@ -1010,6 +1080,8 @@
       
       <category>Deep Learning</category>
       
+      <category>Transformer</category>
+      
     </categories>
     
     
@@ -1034,6 +1106,8 @@
     <categories>
       
       <category>Deep Learning</category>
+      
+      <category>度量学习</category>
       
     </categories>
     
@@ -1070,16 +1144,18 @@
   
   
   <entry>
-    <title>评估指标记录</title>
+    <title>AUC(area under curve)</title>
     <link href="/cn/evaluation-metrics/"/>
     <url>/cn/evaluation-metrics/</url>
     
-    <content type="html"><![CDATA[<font size=3><p>电子笔记</p><span id="more"></span><h1 id="1-AUC-are-under-curve"><a href="#1-AUC-are-under-curve" class="headerlink" title="1.AUC(are under curve)"></a>1.AUC(are under curve)</h1><h2 id="1-1什么是AUC"><a href="#1-1什么是AUC" class="headerlink" title="1.1什么是AUC"></a>1.1什么是AUC</h2><p>用于评估分类器的分类效果，对于真实类别为1的样本，分类器预测为1的概率(即TPrate)要大于真实类别为0而预测类别为1的概率(即FPrate)，即AUC&gt;0.5。</p><h2 id="1-2如何计算AUC"><a href="#1-2如何计算AUC" class="headerlink" title="1.2如何计算AUC"></a>1.2如何计算AUC</h2><p>在有M个正样本,N个负样本的数据集里。一共有M*N对样本（一对样本即一个正样本与一个负样本）。统计这M*N对样本里，正样本的预测概率大于负样本的预测概率的个数。<br><img src="https://s2.loli.net/2024/12/09/lj6xh4XCm7oqgDu.png" alt="image.png"></p><h2 id="1-3接口参数含义"><a href="#1-3接口参数含义" class="headerlink" title="1.3接口参数含义"></a>1.3接口参数含义</h2><p><code>roc_auc_score(test_labels, probs, multi_class=&#39;ovr&#39;)</code></p><div class="note note-info">            <ol><li>test_labels: 实际的类别标签，shape是 [N,]</li><li>probs: 每个样本在各个类别上的概率，shape是[N, C]</li><li>指定计算多类别问题的 AUC (<strong>One-vs-Rest 策略</strong>)</li></ol>          </div><h1 id="2-AccuracyCalculator使用"><a href="#2-AccuracyCalculator使用" class="headerlink" title="2.AccuracyCalculator使用"></a>2.AccuracyCalculator使用</h1><p>在<strong>pytorch-metric-learning</strong>中，AccuracyCalculator主要用于计算准确率（如 top-k 准确率）。通过嵌入向量之间的相似度来推测每个样本的类别，并与真实标签进行比较，相同则预测正确。这种方法是基于<strong>最近邻</strong>来判断类别，预测准确率的。</p><p>使用方法：</p><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">from</span> pytorch_metric_learning <span class="hljs-keyword">import</span> losses<br><span class="hljs-keyword">from</span> pytorch_metric_learning.utils.accuracy_calculator <span class="hljs-keyword">import</span> AccuracyCalculator<br><br><span class="hljs-comment"># 初始化 AccuracyCalculator: 参数k值，指定 top-k 精度</span><br>accuracy_calculator = AccuracyCalculator(k=<span class="hljs-number">1</span>)<br><br><span class="hljs-comment"># 计算准确率</span><br>accuracy = accuracy_calculator.calculate(<br>    embeddings=embeddings,  <span class="hljs-comment"># 模型输出的嵌入向量 [batch_size, embedding_dim]</span><br>    labels=labels,          <span class="hljs-comment"># 标签 [batch_size]</span><br>)<br></code></pre></td></tr></table></figure><h1 id="3-资料"><a href="#3-资料" class="headerlink" title="3.资料"></a>3.资料</h1><ul><li><a href="https://www.zhihu.com/question/39840928?from=profile_question_card">AUC如何理解？</a></li><li><a href="https://blog.csdn.net/qq_22238533/article/details/78666436">AUC的计算方法</a></li></ul></font>]]></content>
+    <content type="html"><![CDATA[<font size=3><p>电子笔记</p><span id="more"></span><h1 id="1-AUC-area-under-curve"><a href="#1-AUC-area-under-curve" class="headerlink" title="1.AUC(area under curve)"></a>1.AUC(area under curve)</h1><h2 id="1-1什么是AUC"><a href="#1-1什么是AUC" class="headerlink" title="1.1什么是AUC"></a>1.1什么是AUC</h2><p>用于评估分类器的分类效果，对于真实类别为1的样本，分类器预测为1的概率(即TPrate)要大于真实类别为0而预测类别为1的概率(即FPrate)，即AUC&gt;0.5。</p><h2 id="1-2如何计算AUC"><a href="#1-2如何计算AUC" class="headerlink" title="1.2如何计算AUC"></a>1.2如何计算AUC</h2><p>在有M个正样本,N个负样本的数据集里。一共有M*N对样本（一对样本即一个正样本与一个负样本）。统计这M*N对样本里，正样本的预测概率大于负样本的预测概率的个数。<br><img src="https://s2.loli.net/2024/12/09/lj6xh4XCm7oqgDu.png" alt="image.png"></p><h2 id="1-3接口参数含义"><a href="#1-3接口参数含义" class="headerlink" title="1.3接口参数含义"></a>1.3接口参数含义</h2><p><code>roc_auc_score(test_labels, probs, multi_class=&#39;ovr&#39;)</code></p><div class="note note-info">            <ol><li>test_labels: 实际的类别标签，shape是 [N,]</li><li>probs: 每个样本在各个类别上的概率，shape是[N, C]</li><li>指定计算多类别问题的 AUC (<strong>One-vs-Rest 策略</strong>)</li></ol>          </div><h1 id="2-AccuracyCalculator使用"><a href="#2-AccuracyCalculator使用" class="headerlink" title="2.AccuracyCalculator使用"></a>2.AccuracyCalculator使用</h1><p>在<strong>pytorch-metric-learning</strong>中，AccuracyCalculator主要用于计算准确率（如 top-k 准确率）。通过嵌入向量之间的相似度来推测每个样本的类别，并与真实标签进行比较，相同则预测正确。这种方法是基于<strong>最近邻</strong>来判断类别，预测准确率的。</p><p>使用方法：</p><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">from</span> pytorch_metric_learning <span class="hljs-keyword">import</span> losses<br><span class="hljs-keyword">from</span> pytorch_metric_learning.utils.accuracy_calculator <span class="hljs-keyword">import</span> AccuracyCalculator<br><br><span class="hljs-comment"># 初始化 AccuracyCalculator: 参数k值，指定 top-k 精度</span><br>accuracy_calculator = AccuracyCalculator(k=<span class="hljs-number">1</span>)<br><br><span class="hljs-comment"># 计算准确率</span><br>accuracy = accuracy_calculator.calculate(<br>    embeddings=embeddings,  <span class="hljs-comment"># 模型输出的嵌入向量 [batch_size, embedding_dim]</span><br>    labels=labels,          <span class="hljs-comment"># 标签 [batch_size]</span><br>)<br></code></pre></td></tr></table></figure><h1 id="3-资料"><a href="#3-资料" class="headerlink" title="3.资料"></a>3.资料</h1><ul><li><a href="https://www.zhihu.com/question/39840928?from=profile_question_card">AUC如何理解？</a></li><li><a href="https://blog.csdn.net/qq_22238533/article/details/78666436">AUC的计算方法</a></li></ul></font>]]></content>
     
     
     <categories>
       
-      <category>Python</category>
+      <category>Deep Learning</category>
+      
+      <category>评估指标</category>
       
     </categories>
     
@@ -1097,7 +1173,7 @@
   
   
   <entry>
-    <title>Ear-EEG数据集调研</title>
+    <title>EAR-EEG数据集调研</title>
     <link href="/cn/Ear-EEG-Dataset/"/>
     <url>/cn/Ear-EEG-Dataset/</url>
     
@@ -1107,6 +1183,8 @@
     <categories>
       
       <category>Deep Learning</category>
+      
+      <category>耳脑电</category>
       
     </categories>
     
@@ -1135,6 +1213,8 @@
       
       <category>Python</category>
       
+      <category>Socket通信</category>
+      
     </categories>
     
     
@@ -1153,6 +1233,8 @@
     <categories>
       
       <category>Python</category>
+      
+      <category>Socket通信</category>
       
     </categories>
     
