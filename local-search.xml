@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Hermes Agent | {Windows WSL2安装+配置爱马仕记录}</title>
+    <link href="/cn/hermes_installment/"/>
+    <url>/cn/hermes_installment/</url>
+    
+    <content type="html"><![CDATA[<p>Windows安装Hermes Agent全过程，包括进阶配置~</p><span id="more"></span><h1 id="1-前置步骤"><a href="#1-前置步骤" class="headerlink" title="1. 前置步骤"></a>1. 前置步骤</h1><p>首先确保wsl已经安装（<code>wsl --install</code>），接着如果没有在WSL中安装过Linux系统，输入以下命令安装：</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cmd">wsl --install -d Ubuntu-<span class="hljs-number">22</span>.<span class="hljs-number">04</span><br><br>wsl --list --verbose  # 查看wsl中安装了哪些发行版linux系统<br></code></pre></td></tr></table></figure><p>首次启动安装好的Ubuntu 22.04 :</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">wsl -d Ubuntu-<span class="hljs-number">22</span>.<span class="hljs-number">04</span><br></code></pre></td></tr></table></figure><p>由于直接执行<code>sudo apt update</code>，默认会用Ubuntu官方源，在国内访问速度极慢，经常超时、下载失败。所以先换国内镜像源，再更新软件源，更改镜像源：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo <span class="hljs-built_in">tee</span> /etc/apt/sources.list &lt;&lt;-<span class="hljs-string">&#x27;EOF&#x27;</span><br>deb http://mirrors.aliyun.com/ubuntu/ jammy main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ jammy-security main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ jammy-updates main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ jammy-proposed main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ jammy-backports main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ jammy main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ jammy-security main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ jammy-updates main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ jammy-proposed main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ jammy-backports main restricted universe multiverse<br>EOF<br></code></pre></td></tr></table></figure><blockquote><p>如果你装的是 24.04，把上面所有 jammy 换成 noble 即可。</p></blockquote><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo apt update &amp;&amp; sudo apt upgrade -y<br>sudo apt install -y curl build-essential python3 python3-pip<br></code></pre></td></tr></table></figure><p>Python 包用默认源也很慢，给pip也换国内清华源：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">pip3 config <span class="hljs-built_in">set</span> global.index-url https://pypi.tuna.tsinghua.edu.cn/simple<br></code></pre></td></tr></table></figure><p>最后检查git版本，默认系统已经安装了，<code>git --version</code>。</p><h1 id="2-Hermes-Agent安装"><a href="#2-Hermes-Agent安装" class="headerlink" title="2. Hermes Agent安装"></a>2. Hermes Agent安装</h1><p>直接到<a href="https://hermes-agent.nousresearch.com/">Hermes官网</a>复制安装命令:</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash<br></code></pre></td></tr></table></figure><p>但是这一步要到github上去拉取仓库，国内的网络会超时，我的解决办法是开梯子，并打开<strong>TUN模式</strong>，强制接管所有流量转发，包括WSL使用的虚拟NAT网卡。</p><p>接下来，安装完毕之后，会让你选择要使用的AI模型，填入API key，和模型名字，跳过message设置，等会再来配置。好了，存在于终端的AI助手安装完毕，可以查看版本：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sh">proton@LAPTOP-9MVNRQAC:/mnt/c/Users/Lenovo$ hermes --version<br>Hermes Agent v0.11.0 (2026.4.23)<br>Project: /home/proton/.hermes/hermes-agent<br>Python: 3.11.15<br>OpenAI SDK: 2.32.0<br>Up to <span class="hljs-built_in">date</span><br>proton@LAPTOP-9MVNRQAC:/mnt/c/Users/Lenovo$<br></code></pre></td></tr></table></figure><p>进入界面体验：<br><img src="https://files.seeusercontent.com/2026/04/30/5pgQ/pasted-image-1777539155572.webp" alt="who are you"></p><h1 id="3-进阶配置"><a href="#3-进阶配置" class="headerlink" title="3. 进阶配置"></a>3. 进阶配置</h1><p>todo…</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>AI Agent</category>
+      
+      <category>Hermes</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>上手AI</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>大营销项目 | {RabbitMQ在Big-Market中的应用}</title>
     <link href="/cn/big_market_rabbit_mq/"/>
     <url>/cn/big_market_rabbit_mq/</url>
